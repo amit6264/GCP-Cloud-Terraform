@@ -31,4 +31,15 @@ module "gke" {
 
   services_range_name = module.network.services_range_name
 
+  node_service_account = module.iam.gke_service_account_email
+
+}
+
+
+
+module "iam" {
+  source = "./modules/iam"
+
+  project_id = var.project_id
+  environment = var.environment
 }
